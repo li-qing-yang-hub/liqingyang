@@ -1,0 +1,17 @@
+function param(url) {
+            let askIndex =url.indexOf('?')
+            let askText = url.substring(askIndex + 1);
+            let obj = {};
+            if (askText){
+              askText.split('&').forEach(item =>{
+                    let arr=item.split('=');
+                    key=arr[0];
+                    value=arr[1];
+                    obj[key]=value;                
+                    })
+            }
+            return obj;
+        }
+        let url = "locallhost?key1=val1&key2=val2&key3=val3";
+        let getParam=param(url);
+        console.log(getParam.key3)
